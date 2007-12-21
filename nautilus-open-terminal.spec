@@ -10,6 +10,7 @@ Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{vers
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://www.gnome-de.org
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel
 BuildRequires: perl-XML-Parser
 #if patched
