@@ -16,6 +16,7 @@ BuildRequires: nautilus-devel >= 2.21.2
 BuildRequires: perl-XML-Parser
 #if patched
 BuildRequires: intltool
+BuildRequires: gnome-common
 
 %description
 This is a proof-of-concept Nautilus extension which allows you to open
