@@ -1,6 +1,6 @@
 %define name nautilus-open-terminal
 %define version 0.8
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Open a terminal in a specified folder
 Name: %{name}
@@ -32,6 +32,8 @@ rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 %find_lang %name
 rm -f %buildroot%_libdir/nautilus/extensions-1.0/libnautilus-open-terminal.*a
+cd %buildroot%_libdir/nautilus/
+mv extensions-1.0 extensions-2.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -39,6 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %name.lang
 %defattr(-,root,root)
 %doc ChangeLog NEWS README AUTHORS TODO
-%_libdir/nautilus/extensions-1.0/libnautilus-open-terminal.so
+%_libdir/nautilus/extensions-2.0/libnautilus-open-terminal.so
 
 
