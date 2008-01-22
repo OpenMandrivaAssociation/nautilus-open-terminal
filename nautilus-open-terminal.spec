@@ -1,17 +1,18 @@
 %define name nautilus-open-terminal
 %define version 0.8
-%define release %mkrel 2
+%define svn 160
+%define release %mkrel %svn.1
 
 Summary: Open a terminal in a specified folder
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{version}.tar.bz2
+Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{svn}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://www.gnome-de.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: nautilus-devel
+BuildRequires: nautilus-devel >= 2.21.2
 BuildRequires: perl-XML-Parser
 #if patched
 BuildRequires: intltool
@@ -21,7 +22,8 @@ This is a proof-of-concept Nautilus extension which allows you to open
 a terminal in arbitrary local folders.
 
 %prep
-%setup -q
+%setup -q -n %name
+./autogen.sh
 
 %build
 %configure2_5x
@@ -31,16 +33,20 @@ a terminal in arbitrary local folders.
 rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 %find_lang %name
-rm -f %buildroot%_libdir/nautilus/extensions-1.0/libnautilus-open-terminal.*a
-cd %buildroot%_libdir/nautilus/
-mv extensions-1.0 extensions-2.0
+rm -f %buildroot%_libdir/nautilus/extensions-*/libnautilus-open-terminal.*a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%post_install_gconf_schemas %name
+%preun
+%preun_uninstall_gconf_schemas %name
+
 %files -f %name.lang
 %defattr(-,root,root)
 %doc ChangeLog NEWS README AUTHORS TODO
+%_sysconfdir/gconf/schemas/%name.schemas
 %_libdir/nautilus/extensions-2.0/libnautilus-open-terminal.so
 
 
