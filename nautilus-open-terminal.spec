@@ -1,13 +1,12 @@
 %define name nautilus-open-terminal
-%define version 0.8
-%define svn 160
-%define release %mkrel %svn.1
+%define version 0.9
+%define release %mkrel 1
 
 Summary: Open a terminal in a specified folder
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{svn}.tar.bz2
+Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://www.gnome-de.org
@@ -23,8 +22,7 @@ This is a proof-of-concept Nautilus extension which allows you to open
 a terminal in arbitrary local folders.
 
 %prep
-%setup -q -n %name
-./autogen.sh
+%setup -q
 
 %build
 %configure2_5x
