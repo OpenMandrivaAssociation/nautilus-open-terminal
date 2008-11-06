@@ -1,17 +1,19 @@
 %define name nautilus-open-terminal
 %define version 0.9
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: Open a terminal in a specified folder
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{version}.tar.bz2
+Patch: nautilus-open-terminal-0.9-gnomevfs.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.gnome-de.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.21.2
+BuildRequires: gnome-vfs2-devel
 BuildRequires: intltool
 #if patched
 BuildRequires: gnome-common
@@ -22,6 +24,8 @@ a terminal in arbitrary local folders.
 
 %prep
 %setup -q
+%patch -p1
+autoreconf
 
 %build
 %configure2_5x
