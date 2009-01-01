@@ -14,6 +14,7 @@ Url: http://www.gnome-de.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.21.2
 BuildRequires: gnome-vfs2-devel
+BuildRequires: gnome-desktop-devel
 BuildRequires: intltool
 #if patched
 BuildRequires: gnome-common
