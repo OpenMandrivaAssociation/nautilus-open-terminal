@@ -6,7 +6,7 @@ Summary: Open a terminal in a specified folder
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://download.gnome.org/sources/nautilus-open-terminal/%{name}-%{version}.tar.bz2
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch: nautilus-open-terminal-0.9-gnomevfs.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
