@@ -1,23 +1,20 @@
 %define name nautilus-open-terminal
-%define version 0.9
-%define release %mkrel 5
+%define version 0.10
+%define release %mkrel 1
 
 Summary: Open a terminal in a specified folder
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch: nautilus-open-terminal-0.9-gnomevfs.patch
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://www.gnome-de.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: nautilus-devel >= 2.21.2
 BuildRequires: gnome-vfs2-devel
-BuildRequires: gnome-desktop-devel
+BuildRequires: eel-devel
 BuildRequires: intltool
-#if patched
-BuildRequires: gnome-common
 
 %description
 This is a proof-of-concept Nautilus extension which allows you to open
@@ -25,8 +22,6 @@ a terminal in arbitrary local folders.
 
 %prep
 %setup -q
-%patch -p1
-autoreconf
 
 %build
 %configure2_5x
