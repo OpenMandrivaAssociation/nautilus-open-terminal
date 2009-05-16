@@ -1,5 +1,5 @@
 %define name nautilus-open-terminal
-%define version 0.10
+%define version 0.11
 %define release %mkrel 1
 
 Summary: Open a terminal in a specified folder
