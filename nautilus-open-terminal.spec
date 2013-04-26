@@ -1,11 +1,7 @@
-%define name nautilus-open-terminal
-%define version 0.19
-%define release %mkrel 1
-
 Summary: Open a terminal in a specified folder
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name:    nautilus-open-terminal
+Version: 0.19
+Release: 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: GPLv2+
 Group: Graphical desktop/GNOME
@@ -27,13 +23,10 @@ a terminal in arbitrary local folders.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 %find_lang %name
 rm -f %buildroot%_libdir/nautilus/extensions-*/libnautilus-open-terminal.*a
 
-%post
-%post_install_gconf_schemas %name
 %preun
 %preun_uninstall_gconf_schemas %name
 
