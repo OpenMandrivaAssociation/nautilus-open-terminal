@@ -5,7 +5,7 @@ Release: 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: GPLv2+
 Group: Graphical desktop/GNOME
-Url: http://www.gnome-de.org
+Url: https://www.gnome-de.org
 BuildRequires: nautilus-devel >= 2.21.2
 BuildRequires: intltool
 BuildRequires: pkgconfig(gnome-desktop-3.0)
